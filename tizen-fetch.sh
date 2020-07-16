@@ -140,7 +140,8 @@ fetch_tizen_pkgs()
     done
 }
 
-fetch_tizen_pkgs_init standard base
-fetch_tizen_pkgs armv7l gcc libgcc glibc glibc-devel linux-glibc-devel libstdc++ zlib-devel libncurses5
-fetch_tizen_pkgs_init standard unified
+fetch_tizen_pkgs_init standard 5.5-base
+fetch_tizen_pkgs armv7l gcc libgcc glibc glibc-devel libstdc++ zlib-devel libncurses5
+fetch_tizen_pkgs noarch linux-glibc-devel
+fetch_tizen_pkgs_init standard 5.5-unified
 fetch_tizen_pkgs armv7l freetype2-devel libpng-devel

@@ -1,6 +1,6 @@
 # sysroot
 
-Tizen sysroot builder for fproject
+Tizen sysroot generator for building Flutter
 
 ## How to run
 

@@ -140,8 +140,12 @@ fetch_tizen_pkgs()
     done
 }
 
+# TODO: Automatically resolve dependencies.
 fetch_tizen_pkgs_init standard 5.5-base
-fetch_tizen_pkgs armv7l gcc libgcc glibc glibc-devel libstdc++ zlib-devel libncurses5
-fetch_tizen_pkgs noarch linux-glibc-devel
+fetch_tizen_pkgs armv7l gcc libgcc glibc glibc-devel libstdc++ zlib-devel libncurses5 # for engine
+fetch_tizen_pkgs noarch linux-glibc-devel # for engine (noarch)
+fetch_tizen_pkgs armv7l libstdc++-devel # for embedder
 fetch_tizen_pkgs_init standard 5.5-unified
-fetch_tizen_pkgs armv7l freetype2-devel libpng-devel
+fetch_tizen_pkgs armv7l freetype2-devel libpng-devel # for engine
+fetch_tizen_pkgs armv7l capi-base-common-devel libdlog-devel coregl-devel ecore-core-devel ecore-wl2-devel eina-devel efl-devel eo-devel wayland-devel libxkbcommon-devel # for embedder
+fetch_tizen_pkgs armv7l libtdm libtdm-client libtdm-devel libtdm-client-devel libtbm-devel # for embedder (vsync waiter)

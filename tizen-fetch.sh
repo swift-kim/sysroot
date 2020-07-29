@@ -147,5 +147,6 @@ fetch_tizen_pkgs noarch linux-glibc-devel # for engine (noarch)
 fetch_tizen_pkgs armv7l libstdc++-devel # for embedder
 fetch_tizen_pkgs_init standard 5.5-unified
 fetch_tizen_pkgs armv7l freetype2-devel libpng-devel # for engine
-fetch_tizen_pkgs armv7l capi-base-common-devel libdlog-devel coregl-devel ecore-core-devel ecore-wl2-devel eina-devel efl-devel eo-devel wayland-devel libxkbcommon-devel # for embedder
-fetch_tizen_pkgs armv7l libtdm libtdm-client libtdm-devel libtdm-client-devel libtbm-devel # for embedder (vsync waiter)
+fetch_tizen_pkgs armv7l capi-base-common-devel libdlog-devel coregl-devel ecore-core-devel ecore-wl2-devel eina-devel efl-devel eo-devel wayland-devel libxkbcommon-devel # for embedder (devel)
+fetch_tizen_pkgs armv7l libtdm libtdm-client libtdm-devel libtdm-client-devel libtbm-devel # for embedder (vsync)
+fetch_tizen_pkgs armv7l libwayland-client ecore-wl2 coregl libdlog ecore-core ecore-input # for embedder (libs)

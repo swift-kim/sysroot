@@ -30,6 +30,7 @@ for f in $TMP_DIR/*.rpm; do
     rpm2cpio $f | cpio -idm --quiet
 done
 ln -s asm-arm usr/include/asm
+ln -s libecore_input.so.1 usr/lib/libecore_input.so
 echo "<<Finished constructing rootfs"
 
 rm -rf $TMP_DIR

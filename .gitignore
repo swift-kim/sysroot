@@ -1,2 +1,5 @@
+arm/
 armel/
 arm64/
+x86/
+.vscode/

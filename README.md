@@ -1,11 +1,12 @@
 # sysroot
 
-Tizen sysroot generator for building Flutter
+Tizen rootfs generator (for Flutter)
 
-## How to run
+## Examples
 
 ```bash
-./tizen-build-rootfs.sh
-# ROOTFS_DIR=PATH ./tizen-build-rootfs.sh
+./build-rootfs.py
+./build-rootfs.py --help
+./build-rootfs.py --arch x86
+./build-rootfs.py --clean
 ```
-

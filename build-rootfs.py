@@ -6,22 +6,49 @@ import shutil
 import subprocess
 import urllib.request
 
-# TODO: Keep only required packages.
 basePackages = [
-    'gcc', 'libgcc', 'glibc', 'glibc-devel', 'libstdc++', 'zlib-devel',
-    'libncurses5', 'linux-glibc-devel', 'libstdc++-devel'
+    'gcc',
+    'glibc',
+    'glibc-devel',
+    'libgcc',
+    'libstdc++',
+    'libstdc++-devel',
+    'linux-glibc-devel',
+    'zlib-devel',
 ]
-
 unifiedPackages = [
-    'freetype2-devel', 'libpng-devel', 'capi-base-common-devel',
-    'capi-base-utils-devel', 'libdlog-devel', 'coregl-devel',
-    'ecore-core-devel', 'ecore-wl2-devel', 'eina-devel', 'efl-devel',
-    'eo-devel', 'wayland-devel', 'libxkbcommon-devel', 'jsoncpp-devel',
-    'emile-devel', 'evas-devel', 'ecore-imf-devel', 'ecore-imf-evas-devel',
-    'libtdm', 'libtbm', 'libtdm-client', 'libtdm-devel', 'libtdm-client-devel',
-    'libtbm-devel', 'capi-base-utils', 'libwayland-client', 'ecore-wl2',
-    'coregl', 'libdlog', 'ecore-core', 'ecore-input', 'jsoncpp', 'emile',
-    'evas', 'ecore-imf', 'ecore-imf-evas'
+    'capi-base-common-devel',
+    'capi-base-utils',
+    'capi-base-utils-devel',
+    'coregl',
+    'coregl-devel',
+    'ecore-core',
+    'ecore-core-devel',
+    'ecore-imf',
+    'ecore-imf-devel',
+    'ecore-imf-evas-devel',
+    'ecore-input',
+    'ecore-wl2',
+    'ecore-wl2-devel',
+    'efl-devel',
+    'eina-devel',
+    'emile-devel',
+    'eo-devel',
+    'evas',
+    'evas-devel',
+    'freetype2-devel',
+    'jsoncpp',
+    'jsoncpp-devel',
+    'libdlog',
+    'libdlog-devel',
+    'libpng-devel',
+    'libtbm-devel',
+    'libtdm-client',
+    'libtdm-client-devel',
+    'libtdm-devel',
+    'libwayland-client',
+    'libxkbcommon-devel',
+    'wayland-devel',
 ]
 
 # Execute only if run as a script.

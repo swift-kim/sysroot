@@ -120,13 +120,14 @@ for url in [f'{args.base_repo}/{archName}',
 
 # Download packages.
 for package in basePackages + unifiedPackages:
-    if any([f.startswith(package) for f in existingRpms]):
+    pattern = f'{re.escape(package)}-\\d+\\.[\\d_\\.]+-[\\d\\.]+\\..+\\.rpm'
+
+    if any([re.match(pattern, f) for f in existingRpms]):
         print(f'Already downloaded {package}')
         continue
 
-    pattern = f'<a href=".+">({re.escape(package)}-\\d+\\.[\\d_\\.]+-[\\d\\.]+\\..+\\.rpm)</a>'
     for parent, doc in documents.items():
-        match = re.findall(pattern, doc)
+        match = re.findall(f'<a href=".+">({pattern})</a>', doc)
         if len(match) > 0:
             url = f'{parent}/{match[0]}'
             break

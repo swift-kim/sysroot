@@ -4,6 +4,7 @@ import os
 import re
 import shutil
 import subprocess
+import urllib.parse
 import urllib.request
 
 basePackages = [
@@ -20,6 +21,10 @@ unifiedPackages = [
     'capi-base-common-devel',
     'capi-base-utils',
     'capi-base-utils-devel',
+    'capi-system-info',
+    'capi-system-info-devel',
+    'capi-system-system-settings',
+    'capi-system-system-settings-devel',
     'coregl',
     'coregl-devel',
     'ecore-core',
@@ -42,6 +47,7 @@ unifiedPackages = [
     'libdlog',
     'libdlog-devel',
     'libpng-devel',
+    'libtbm',
     'libtbm-devel',
     'libtdm-client',
     'libtdm-client-devel',
@@ -120,14 +126,15 @@ for url in [f'{args.base_repo}/{archName}',
 
 # Download packages.
 for package in basePackages + unifiedPackages:
-    pattern = f'{re.escape(package)}-\\d+\\.[\\d_\\.]+-[\\d\\.]+\\..+\\.rpm'
+    quoted = urllib.parse.quote(package)
+    pattern = f'{re.escape(quoted)}-\\d+\\.[\\d_\\.]+-[\\d\\.]+\\..+\\.rpm'
 
     if any([re.match(pattern, f) for f in existingRpms]):
         print(f'Already downloaded {package}')
         continue
 
     for parent, doc in documents.items():
-        match = re.findall(f'<a href=".+">({pattern})</a>', doc)
+        match = re.findall(f'<a href="({pattern})">.+?</a>', doc)
         if len(match) > 0:
             url = f'{parent}/{match[0]}'
             break
@@ -145,7 +152,8 @@ for rpm in [f for f in os.listdir(downloadPath) if f.endswith('.rpm')]:
     subprocess.run(command, shell=True, check=True)
 
 # Create symbolic links. Any errors are ignored.
-subprocess.run(f'ln -s asm-arm {args.output}/usr/include/asm', shell=True)
+subprocess.run(f'ln -s asm-{args.arch} {args.output}/usr/include/asm',
+               shell=True)
 subprocess.run(f'ln -s libecore_input.so.1 {args.output}/usr/lib/libecore_input.so',
                shell=True)
 
